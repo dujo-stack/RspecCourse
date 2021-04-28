@@ -11,7 +11,7 @@
     </content>
     <orderEntry type="jdk" jdkName="RVM: ruby-2.5.5 [course]" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.2.10, RVM: ruby-2.5.5 [course]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.17.3, RVM: ruby-2.5.5 [course]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.1, RVM: ruby-2.5.5 [course]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.4.4, RVM: ruby-2.5.5 [course]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mustermann (v1.1.1, RVM: ruby-2.5.5 [course]) [gem]" level="application" />
