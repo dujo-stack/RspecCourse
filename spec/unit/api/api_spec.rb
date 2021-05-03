@@ -56,6 +56,45 @@ module ExpenseTracker
           expect(last_response.status).to eq(422)
         end
       end
+
+      describe 'GET /expenses/:date' do
+        let(:expense) { {'payee'  => 'Whole Foods',
+                         'amount' => 95.20,
+                         'date'   => '2017-06-11'} }
+        let(:expense_array) { [] }
+
+        context 'when expenses exist on the given date' do
+          before do
+            allow(ledger).to receive(:expenses_on)
+                               .and_return(expense)
+            get '/expenses/2017-06-10'
+          end
+          it 'returns the expense records as JSON' do
+           parsed = JSON.parse(last_response.body)
+           expect(parsed).to match(expense)
+
+          end
+          it 'responds with a 200 (OK)' do
+            expect(last_response.status).to eq(200)
+          end
+        end
+
+        context 'when there are no expenses on the given date' do
+          before do
+            allow(ledger).to receive(:expenses_on)
+                               .and_return(expense_array)
+            get '/expenses/2017-06-10'
+          end
+
+          it 'returns an empty array as JSON' do
+            parsed = JSON.parse(last_response.body)
+            expect(parsed).to match([])
+          end
+          it 'responds with a 200 (OK)' do
+            expect(last_response.status).to eq(200)
+          end
+        end
+      end
     end
   end
 end
